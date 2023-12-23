@@ -11,6 +11,10 @@ app.get("/", (req, res, next) => {
 
 const peerServer = ExpressPeerServer(server, {
 	path: "/myapp",
+    corsOptions: {
+        origin: "*",
+        optionsSuccessStatus: 200,
+    },
 });
 
 app.use("/peerjs", peerServer);
